@@ -1,9 +1,13 @@
 import express from 'express';
 import 'dotenv/config';
 
+import './shared/services/TranslationsYup';
 import { router } from './routes';
 
 const server = express();
+
+// Middleware para parsear JSON no corpo da requisição
+server.use(express.json());
 
 server.use(router);
 
